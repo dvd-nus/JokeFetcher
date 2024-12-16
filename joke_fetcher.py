@@ -47,10 +47,6 @@ async def fetch_jokes(num_jokes=100):
                     
                     # Add the processed joke to the jokes list
                     jokes.append(joke)
-            
-            # If we've fetched enough jokes, break out of the loop
-            if len(jokes) >= num_jokes:
-                break
     
     # Return only the required number of jokes (in case we fetched more)
-    return jokes[:num_jokes]
+    return jokes
