@@ -18,7 +18,7 @@ def get_db():
 # Endpoint to fetch jokes and store them in the database
 @app.post("/fetch_jokes")
 async def fetch_and_store_jokes(num_jokes: int = 100, db: Session = Depends(get_db)):
-    jokes = fetch_jokes(num_jokes)
+    jokes = await fetch_jokes(num_jokes)
     for joke_data in jokes:
         joke = Joke(**joke_data)
         db.add(joke)
@@ -29,4 +29,4 @@ async def fetch_and_store_jokes(num_jokes: int = 100, db: Session = Depends(get_
 @app.get("/jokes")
 def get_jokes(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
     jokes = db.query(Joke).offset(skip).limit(limit).all()
-    return jokes
+    return {"num of jokes": len(jokes), "jokes": jokes}

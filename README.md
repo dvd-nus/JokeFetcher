@@ -6,12 +6,12 @@ This project fetches jokes from the [JokeAPI](https://sv443.net/jokeapi/v2/) and
 - FastAPI
 - Uvicorn
 - SQLAlchemy
-- Requests
+- httpx
 
 ## Setup
 
 1. Install the dependencies:
-`pip install fastapi uvicorn sqlalchemy requests`
+`pip install fastapi uvicorn sqlalchemy httpx`
 
 
 2. Run the FastAPI app:
